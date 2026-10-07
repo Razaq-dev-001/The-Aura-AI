@@ -1,0 +1,21 @@
+{
+  "name": "@aura/tools",
+  "version": "1.0.0",
+  "private": true,
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc -w"
+  },
+  "dependencies": {
+    "@aura/shared": "*",
+    "@aura/database": "*",
+    "@aura/project": "*",
+    "cheerio": "^1.0.0",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.2"
+  }
+}

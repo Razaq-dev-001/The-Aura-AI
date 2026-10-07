@@ -1,0 +1,29 @@
+{
+  "name": "aura-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "AURA — Autonomous Universal Reasoning Assistant",
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "dev": "concurrently -k -p \"[{name}]\" -n \"SERVER,WEB\" -c \"cyan.bold,magenta.bold\" \"npm run dev --workspace=@aura/server\" \"npm run dev --workspace=@aura/web\"",
+    "dev:server": "npm run dev --workspace=@aura/server",
+    "dev:web": "npm run dev --workspace=@aura/web",
+    "build": "npm --workspace=@aura/shared run build && npm --workspace=@aura/database run build && npm --workspace=@aura/ai run build && npm --workspace=@aura/project run build && npm --workspace=@aura/tools run build && npm --workspace=@aura/memory run build && npm --workspace=@aura/agent run build && npm --workspace=@aura/server run build && npm --workspace=@aura/web run build",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "eslint . --ext .ts,.tsx",
+    "format": "prettier --write \"**/*.{ts,tsx,json,md}\""
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2",
+    "prettier": "^3.5.3",
+    "typescript": "^5.8.2",
+    "vitest": "^3.0.8"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}
